@@ -23,7 +23,7 @@ get "/logout", to: "registrations#logout"
 
 
 #  PANTRY CONTROLLER
-
+post "/pantry", to: "pantry#create"
 
 
 
