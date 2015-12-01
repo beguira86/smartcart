@@ -24,7 +24,8 @@ get "/logout", to: "registrations#logout"
 
 #  PANTRY CONTROLLER
 post "/pantry", to: "pantry#create"
-
+get "/pantry/:id/edit", to: "pantry#edit"
+post "/pantry/:id/edit", to: "pantry#update"
 
 
 
