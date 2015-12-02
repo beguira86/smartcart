@@ -39,6 +39,10 @@ class GroceryController < ApplicationController
 		render "edit.json.jbuilder"
 	end
 
+	def destroy
+		@grocery = Grocery.find_by(grocery_id: params[:id])
+	end
+
 	#add a category method to sort the edibles by category?
 
 end
