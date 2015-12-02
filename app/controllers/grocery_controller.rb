@@ -40,7 +40,7 @@ class GroceryController < ApplicationController
 	end
 
 	def destroy
-		@grocery = Grocery.find_by(grocery_id: params[:id])
+		@grocery = Grocery.find_by(id: params[:id])
 	end
 
 	#add a category method to sort the edibles by category?
