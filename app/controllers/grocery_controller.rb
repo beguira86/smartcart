@@ -1,5 +1,5 @@
 class GroceryController < ApplicationController
-#  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index]
 
 	def create
 		@grocery = Grocery.new(necessity: params[:necessity],

@@ -1,5 +1,5 @@
 class EdibleController < ApplicationController
-#  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index]
 
 	def create
 		@edible = Edible.new(necessity: params[:necessity],
