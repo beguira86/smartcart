@@ -22,10 +22,20 @@ post "/login", to: "registrations#login"
 get "/logout", to: "registrations#logout"
 
 
-#  PANTRY CONTROLLER
-post "/pantry", to: "pantry#create"
-get "/pantry/:id/edit", to: "pantry#edit"
-post "/pantry/:id/edit", to: "pantry#update"
+#  HOUSE CONTROLLER
+post "/house", to: "house#create"
+
+#  EDIBLE CONTROLLER
+get "/edible", to: "edible#index"
+post "/edible", to: "edible#create"
+get "/edible/:id/edit", to: "edible#edit"
+post "/edible/:id/edit", to: "edible#update"
+
+# GROCERY CONTROLLER
+get "/grocery", to: "grocery#index"
+post "/grocery", to: "grocery#create"
+get "/grocery/:id/edit", to: "grocery#edit"
+post "/grocery/:id/edit", to: "grocery#update"
 
 
 
