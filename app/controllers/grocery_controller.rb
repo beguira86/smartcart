@@ -42,6 +42,7 @@ class GroceryController < ApplicationController
 	def destroy
 		@grocery = Grocery.find(params[:id])
 		@grocery.destroy
+		render json: {success: "true"}, status: :ok
 	end
 
 	#add a category method to sort the edibles by category?
