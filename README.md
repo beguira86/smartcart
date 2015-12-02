@@ -20,10 +20,10 @@ To create a house - Send a post request to "/house" with the params: name and ad
 
 
 ###Edible (any food in your pantry)
-To create a new edible - Send a post request to "/house" with the params: item, quantity, preferred and category
+To create a new edible - Send a post request to "/house" with the params: title, brand, quantity, preferred and category.  Also, you can set whether or not the item is a necessity, and that takes a boolean.
 
 To edit an edible - 
-1st Send a get request to "/edible/:id/edit".  You will get back json with the item's title, brand, quantity, prefered, category and whether or not it's a necessity.  You'll also receive the house_id.
+1st Send a get request to "/edible/:id/edit".  You will get back json with the item's title, brand, quantity, preferred, category and whether or not it's a necessity.  You'll also receive the house_id.
 2nd Send a post request to "/edible/:id/edit" with the same params that you just receieved.
 
 ###Groceries (any food on your list)
