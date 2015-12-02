@@ -1,5 +1,5 @@
 class GroceryController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  #before_action :authenticate_user!, except: [:index]
 
 	def create
 		@grocery = Grocery.new(necessity: params[:necessity],
@@ -40,7 +40,8 @@ class GroceryController < ApplicationController
 	end
 
 	def destroy
-		@grocery = Grocery.find_by(id: params[:id])
+		@grocery = Grocery.find(params[:id])
+		@grocery.destroy
 	end
 
 	#add a category method to sort the edibles by category?
