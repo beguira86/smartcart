@@ -1,4 +1,6 @@
 class House < ActiveRecord::Base
-  belongs_to :user
-  belongs_to :pantry
+  has_many :roommates
+  has_many :users, through: :roommates
+  has_many :edibles
+  has_many :groceries
 end

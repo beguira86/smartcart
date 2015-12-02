@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-	has_many :pantries
-	has_many :houses
+	has_many :roommates
+	has_many :houses, through: :roommates
 	has_secure_password
 
   before_validation :ensure_access_token!
