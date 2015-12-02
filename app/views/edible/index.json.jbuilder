@@ -1,4 +1,4 @@
 json.array! @edibles do |edible|
- json.extract! edible, :brand, :title, :category, :quantity, :preferred
+ json.extract! edible, :brand, :title, :category, :quantity, :preferred, :necessity, :id
 
 end
