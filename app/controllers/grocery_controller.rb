@@ -24,7 +24,7 @@ class GroceryController < ApplicationController
 
 	def edit
 		@grocery = Grocery.find(params[:id])
-		render "edit.json.jbuilder"
+		render "edit.json.jbuilder", status: :ok
 	end
 
 	def update
@@ -36,7 +36,7 @@ class GroceryController < ApplicationController
 									  title: params[:title],
 									  brand: params[:brand],
  									  house_id: params[:house_id])
-		render "edit.json.jbuilder"
+		render "edit.json.jbuilder", status: :ok
 	end
 
 	def destroy
