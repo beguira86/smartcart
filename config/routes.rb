@@ -32,7 +32,10 @@ get "/edible/:id/edit", to: "edible#edit"
 post "/edible/:id/edit", to: "edible#update"
 
 # GROCERY CONTROLLER
-
+get "/grocery", to: "grocery#index"
+post "/grocery", to: "grocery#create"
+get "/grocery/:id/edit", to: "grocery#edit"
+post "/grocery/:id/edit", to: "grocery#update"
 
 
 
