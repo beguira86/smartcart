@@ -3,6 +3,8 @@ A grocery management system for households.  Realtime updated grocery lists that
 
 ####[URL  -  http://intense-refuge-9476.herokuapp.com](http://intense-refuge-9476.herokuapp.com/signup)
 
+With all requests that change the db (all except index) send the access_token back as Access-Token
+
 ## Methods
 ###User
 To create a new user - Send a post request to "/signup" with the params: email, username and password, with an optional param for name.  As always, save your access token to send back later
@@ -18,12 +20,12 @@ To create a house - Send a post request to "/house" with the params: name and ad
 
 
 ###Edible (any food in your pantry)
-To create a new edible - Send a post request to "/house" with the params: item, quantity, prefered and category
+To create a new edible - Send a post request to "/house" with the params: item, quantity, preferred and category
 
 To edit an edible - 
 1st Send a get request to "/edible/:id/edit".  You will get back json with the item's title, brand, quantity, prefered, category and whether or not it's a necessity.  You'll also receive the house_id.
 2nd Send a post request to "/edible/:id/edit" with the same params that you just receieved.
 
 ###Groceries (any food on your list)
-Same as edible.
+Same as edible; change the /edible... to /grocery...
 
