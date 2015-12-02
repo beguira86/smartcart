@@ -1,4 +1,5 @@
 json.grocery do
+	json.id @grocery.id
   json.necessity @grocery.necessity
   json.quantity @grocery.quantity
   json.preferred @grocery.preferred

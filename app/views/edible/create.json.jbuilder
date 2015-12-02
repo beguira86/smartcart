@@ -1,4 +1,5 @@
 json.edible do
+	json.id @edible.id
   json.necessity @edible.necessity
   json.quantity @edible.quantity
   json.preferred @edible.preferred
