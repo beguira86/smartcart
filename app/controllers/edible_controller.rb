@@ -1,4 +1,5 @@
 class EdibleController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
 
 	def create
 		@edible = Edible.new(item: params[:item],
@@ -11,8 +12,12 @@ class EdibleController < ApplicationController
 			render json: { errors: @edible.errors.full_messages },
         status: :unprocessable_entity
     end
-
 	end
+
+  def index
+    @edibles = Edible.all
+    render :index
+  end
 
 	def edit
 		@edible = Edible.find(params[:id])

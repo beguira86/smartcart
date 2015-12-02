@@ -22,10 +22,17 @@ post "/login", to: "registrations#login"
 get "/logout", to: "registrations#logout"
 
 
+#  HOUSE CONTROLLER
+post "/house", to: "house#create"
+
 #  EDIBLE CONTROLLER
+get "/edible", to: "edible#index"
 post "/edible", to: "edible#create"
 get "/edible/:id/edit", to: "edible#edit"
 post "/edible/:id/edit", to: "edible#update"
+
+# GROCERY CONTROLLER
+
 
 
 
