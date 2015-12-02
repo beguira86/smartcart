@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151201172932) do
+ActiveRecord::Schema.define(version: 20151202133306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,9 @@ ActiveRecord::Schema.define(version: 20151201172932) do
     t.integer "preferred", null: false
     t.boolean "necessity", null: false
     t.string  "category"
+    t.string  "title"
+    t.string  "brand"
+    t.integer "house_id"
   end
 
   create_table "groceries", force: :cascade do |t|
@@ -28,11 +31,14 @@ ActiveRecord::Schema.define(version: 20151201172932) do
     t.integer "preferred", null: false
     t.boolean "necessity", null: false
     t.string  "category"
+    t.string  "title"
+    t.string  "brand"
+    t.integer "house_id"
   end
 
   create_table "houses", force: :cascade do |t|
-    t.integer "food_id"
-    t.integer "grocery_id"
+    t.string "name",    null: false
+    t.string "address"
   end
 
   create_table "roommates", force: :cascade do |t|
