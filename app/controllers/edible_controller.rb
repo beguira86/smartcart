@@ -1,11 +1,14 @@
 class EdibleController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+#  before_action :authenticate_user!, except: [:index]
 
 	def create
-		@edible = Edible.new(item: params[:item],
+		@edible = Edible.new(necessity: params[:necessity],
 												 quantity: params[:quantity],
 												 preferred: params[:preferred],
-												 category: params[:category])
+												 category: params[:category],
+												 title: params[:title],
+												 brand: params[:brand],
+												 house_id: params[:house_id])
 		if @edible.save
 			render "create.json.jbuilder", status: :created
 		else
@@ -16,7 +19,7 @@ class EdibleController < ApplicationController
 
   def index
     @edibles = Edible.all
-    render :index
+    render "index.json.jbuilder"
   end
 
 	def edit
@@ -26,10 +29,13 @@ class EdibleController < ApplicationController
 
 	def update
 		@edible = Edible.find(params[:id])
-		@edible.update(item: params[:item],
+		@edible.update(necessity: params[:necessity],
 									 quantity: params[:quantity],
 									 preferred: params[:preferred],
-									 category: params[:category])
+									 category: params[:category],
+									 title: params[:title],
+									 brand: params[:brand],
+									 house_id: params[:house_id])
 		render "edit.json.jbuilder"
 	end
 

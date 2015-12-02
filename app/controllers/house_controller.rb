@@ -1,7 +1,7 @@
 class HouseController < ApplicationController
 
 	def create
-		@house = House.new(name: params[:name]
+		@house = House.new(name: params[:name],
 											 address: params[:address])
 		if @house.save
 			render "create.json.jbuilder", status: :created
