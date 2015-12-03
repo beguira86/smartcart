@@ -18,8 +18,9 @@ class GroceryController < ApplicationController
 	end
 
   def index
-    @groceries = Grocery.all
-    render "index.json.jbuilder"
+#  	@groceries = current_user.roommates.house_id.Grocery.all
+   @groceries = Grocery.where(house_id: params[:id])
+    render "index.json.jbuilder", status: :ok
   end
 
 	def edit

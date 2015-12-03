@@ -18,8 +18,8 @@ class EdibleController < ApplicationController
 	end
 
   def index
-    @edibles = Edible.all
-    render "index.json.jbuilder"
+   @edibles = Edible.where(house_id: params[:id])
+    render "index.json.jbuilder", status: :ok
   end
 
 	def edit
