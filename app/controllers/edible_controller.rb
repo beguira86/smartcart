@@ -40,7 +40,9 @@ class EdibleController < ApplicationController
 	end
 
 	def destroy
-		@edible = Edible.find_by(id: params[:id])
+		@edible = Edible.find(params[:id])
+		@grocery.destroy
+		render json: {success: "true"}, status: :ok
 	end
 
 	#add a category method to sort the edibles by category?
