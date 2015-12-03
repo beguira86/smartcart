@@ -41,7 +41,7 @@ class EdibleController < ApplicationController
 
 	def destroy
 		@edible = Edible.find(params[:id])
-		@grocery.destroy
+		@edible.destroy
 		render json: {success: "true"}, status: :ok
 	end
 
