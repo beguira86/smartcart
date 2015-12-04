@@ -3,7 +3,7 @@ class HouseController < ApplicationController
 
 	def create
 		@house = current_user.houses.create(name: params[:name],
-																		 address: params[:address])
+																		    address: params[:address])
 #		@house = House.new(name: params[:name],
 #											 address: params[:address])
 		if @house.save
