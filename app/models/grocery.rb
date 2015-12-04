@@ -1,4 +1,4 @@
 class Grocery < ActiveRecord::Base
 	belongs_to :house
-	belongs_to :user, through: :house
+	belongs_to :user
 end
