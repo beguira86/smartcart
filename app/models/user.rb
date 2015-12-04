@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
 	has_many :roommates
 	has_many :houses, through: :roommates
+  has_many :edibles, through: :houses
+  has_many :groceries, through: :houses
 	has_secure_password
 
   before_validation :ensure_access_token!
