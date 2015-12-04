@@ -2,13 +2,21 @@ class EdibleController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
 	def create
-		@edible = Edible.new(necessity: params[:necessity] || false,
+			@edible = current_user.edibles.create(necessity: params[:necessity] || false,
 												 quantity: params[:quantity],
 												 preferred: params[:preferred],
 												 category: params[:category],
 												 title: params[:title],
 												 brand: params[:brand],
 												 house_id: params[:house_id])
+	
+		# @edible = Edible.new(necessity: params[:necessity] || false,
+		# 										 quantity: params[:quantity],
+		# 										 preferred: params[:preferred],
+		# 										 category: params[:category],
+		# 										 title: params[:title],
+		# 										 brand: params[:brand],
+		# 										 house_id: params[:house_id])
 		if @edible.save
 			render "create.json.jbuilder", status: :created
 		else

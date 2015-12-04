@@ -2,13 +2,21 @@ class GroceryController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
 	def create
-		@grocery = Grocery.new(necessity: params[:necessity] || false,
-										   		 quantity: params[:quantity],
-											  	 preferred: params[:preferred],
-												   category: params[:category],
-					  							 title: params[:title],
-						  						 brand: params[:brand],
-							  					 house_id: params[:house_id])
+			@edible = current_user.groceries.create(necessity: params[:necessity] || false,
+												 quantity: params[:quantity],
+												 preferred: params[:preferred],
+												 category: params[:category],
+												 title: params[:title],
+												 brand: params[:brand],
+												 house_id: params[:house_id])	
+
+		# @grocery = Grocery.new(necessity: params[:necessity] || false,
+		# 								   		 quantity: params[:quantity],
+		# 									  	 preferred: params[:preferred],
+		# 										   category: params[:category],
+		# 			  							 title: params[:title],
+		# 				  						 brand: params[:brand],
+		# 					  					 house_id: params[:house_id])
 		if @grocery.save
 			render "create.json.jbuilder", status: :created
 		else
