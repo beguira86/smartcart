@@ -32,7 +32,7 @@ class RegistrationsController < ApplicationController
   end
 
   def destroy
-    @user = User.find_by(email: params[:email])   ####### change to find by some other param
+    @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
       @user.destroy
     else
