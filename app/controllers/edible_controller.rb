@@ -26,7 +26,7 @@ class EdibleController < ApplicationController
 	end
 
   def index
-  	@edibles = current_user.edibles.all
+  	@edibles = current_user.Edible.all
 #   @edibles = Edible.where(house_id: params[:id])
     render "index.json.jbuilder", status: :ok
   end
