@@ -1,8 +1,8 @@
 class GroceryController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!
 
 	def create
-			@edible = current_user.Grocery.create(necessity: params[:necessity] || false,
+			@grocery = current_user.groceries.create(necessity: params[:necessity] || false,
 												 quantity: params[:quantity],
 												 preferred: params[:preferred],
 												 category: params[:category],
@@ -27,7 +27,7 @@ class GroceryController < ApplicationController
 
   def index
   	@user = current_user
-  	@groceries = @user.Grocery.all
+  	@groceries = @user.groceries.all
 #   @groceries = Grocery.where(house_id: params[:id])
     render "index.json.jbuilder", status: :ok
   end
