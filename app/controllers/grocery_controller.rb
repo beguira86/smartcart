@@ -2,7 +2,7 @@ class GroceryController < ApplicationController
   before_action :authenticate_user! 
 
 	def create
-			@grocery = current_user.groceries.create(necessity: params[:necessity] || false,
+			@grocery = current_user.home.groceries.new(necessity: params[:necessity] || false,
 												 quantity: params[:quantity],
 												 preferred: params[:preferred],
 												 category: params[:category],
