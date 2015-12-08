@@ -43,7 +43,7 @@ class EdibleController < ApplicationController
 
 	def update
 		@edible = Edible.find(params[:id])
-		@edible.update(necessity: params[:necessity],
+		@edible.update(necessity: params[:necessity] || false,
 									 quantity: params[:quantity],
 									 preferred: params[:preferred],
 									 category: params[:category],
