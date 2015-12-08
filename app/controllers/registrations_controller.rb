@@ -5,13 +5,13 @@ class RegistrationsController < ApplicationController
                      password: params[:password],
                      email:    params[:email])
     if @user.save
+      WelcomeMailer.welcome(@user).deliver_now
       render "create.json.jbuilder", status: :created
-      # render json: { user: @user }, status: :ok
-        # status: 201
+
     else
       render json: { errors: @user.errors.full_messages },
         status: :unprocessable_entity
-        # status: 422
+
     end
   end
 

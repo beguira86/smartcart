@@ -1,0 +1,2 @@
+class Roommates < ApplicationMailer
+end

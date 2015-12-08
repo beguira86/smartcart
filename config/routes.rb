@@ -29,14 +29,14 @@ post "/house", to: "house#create"
 get "/edible", to: "edible#index"
 post "/edible", to: "edible#create"
 get "/edible/:id/edit", to: "edible#edit"
-post "/edible/:id/edit", to: "edible#update"
+put "/edible/:id/edit", to: "edible#update"
 delete "/edible/:id", to: "edible#destroy"
 
 # GROCERY CONTROLLER
 get "/grocery", to: "grocery#index"
 post "/grocery", to: "grocery#create"
 get "/grocery/:id/edit", to: "grocery#edit"
-post "/grocery/:id/edit", to: "grocery#update"
+put "/grocery/:id/edit", to: "grocery#update"
 delete "/grocery/:id", to: "grocery#destroy"
 
 

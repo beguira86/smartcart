@@ -38,7 +38,7 @@ class GroceryController < ApplicationController
 
 	def update
 		@grocery = Grocery.find(params[:id])
-		@grocery.update(necessity: params[:necessity],
+		@grocery.update(necessity: params[:necessity] || false,
 									  quantity: params[:quantity],
 									  preferred: params[:preferred],
 									  category: params[:category],
