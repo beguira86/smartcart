@@ -7,8 +7,7 @@ class GroceryController < ApplicationController
 												 preferred: params[:preferred],
 												 category: params[:category],
 												 title: params[:title],
-												 brand: params[:brand],
-												 house_id: params[:house_id])	
+												 brand: params[:brand])	
 
 		# @grocery = Grocery.new(necessity: params[:necessity] || false,
 		# 								   		 quantity: params[:quantity],
@@ -43,8 +42,7 @@ class GroceryController < ApplicationController
 									  preferred: params[:preferred],
 									  category: params[:category],
 									  title: params[:title],
-									  brand: params[:brand],
- 									  house_id: params[:house_id])
+									  brand: params[:brand])
 		render "edit.json.jbuilder", status: :ok
 	end
 

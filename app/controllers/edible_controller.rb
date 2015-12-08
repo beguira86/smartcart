@@ -7,8 +7,7 @@ class EdibleController < ApplicationController
 												 preferred: params[:preferred],
 												 category: params[:category],
 												 title: params[:title],
-												 brand: params[:brand],
-												 house_id: params[:house_id])
+												 brand: params[:brand])
 
 	
 		# @edible = Edible.new(necessity: params[:necessity] || false,
@@ -48,8 +47,7 @@ class EdibleController < ApplicationController
 									 preferred: params[:preferred],
 									 category: params[:category],
 									 title: params[:title],
-									 brand: params[:brand],
-									 house_id: params[:house_id])
+									 brand: params[:brand])
 		render "edit.json.jbuilder"
 	end
 
