@@ -15,7 +15,14 @@ class ApplicationController < ActionController::Base
 	  	status: :unauthorized
 	  end
   end
-    
+  
+  def update_quantity(item)
+    current_value = item.quantity
+    added_value = params[:quantity].to_i
+    new_value = current_value + added_value
+    new_value
+  end
+
   # rescue_from ActiveRecord::RecordNotFound do | error |
   #     render json: {error: "There was a problem! #{error.message}" },
   #     status: :not_found

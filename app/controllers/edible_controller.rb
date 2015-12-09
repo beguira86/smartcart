@@ -1,6 +1,12 @@
 class EdibleController < ApplicationController
   before_action :authenticate_user!
 
+  # def update_quantity(item)
+  # 	current_value = item.quantity
+  # 	added_value = params[:quantity].to_i
+  # 	new_value = current_value + added_value
+  # 	new_value
+  # end
 
   def create
 		@edible = current_user.home.edibles.find_or_create_by!(title: params[:title]) do |edible|
@@ -10,7 +16,8 @@ class EdibleController < ApplicationController
 												 edible.necessity = params[:necessity] || false
 												 edible.brand = params[:brand]
 												end
-		@edible.assign_attributes(quantity: params[:quantity] || @edible.quantity,
+
+		@edible.update(quantity: update_quantity(@edible) || @edible.quantity,
 															preferred: params[:preferred] || @edible.preferred,
 															category: params[:category] || @edible.category,
 															title: params[:title] || @edible.title,
