@@ -1,10 +1,26 @@
 class GroceryController < ApplicationController
   before_action :authenticate_user! 
 
-	def create
-		@grocery = current_user.home.groceries.find_or_create_by!(title: params[:title])
-		@grocery.update_attributes(quantity: params[:quantity])
+  def create
+		@grocery = current_user.home.groceries.find_or_create_by!(title: params[:title]) do |grocery|
+												 grocery.quantity = params[:quantity]
+												 grocery.preferred = params[:preferred]
+												 grocery.category = params[:category]
+												 grocery.necessity = params[:necessity] || false
+												 grocery.brand = params[:brand]
+												end
+		@grocery.assign_attributes(quantity: params[:quantity] || @grocery.quantity,
+															preferred: params[:preferred] || @grocery.preferred,
+															category: params[:category] || @grocery.category,
+															title: params[:title] || @grocery.title,
+															brand: params[:brand] || @grocery.brand,
+															necessity: params[:necessity] || @grocery.necessity)
 
+
+
+
+		# @grocery = current_user.home.groceries.find_or_create_by!(title: params[:title])
+		# @grocery.update_attributes(quantity: params[:quantity])
 
 			# @grocery = current_user.home.groceries.new(necessity: params[:necessity] || false,
 			# 									 quantity: params[:quantity],
@@ -56,6 +72,6 @@ class GroceryController < ApplicationController
 		render json: {success: "true"}, status: :ok
 	end
 
-	#add a category method to sort the edibles by category?
+	#add a category method to sort the groceries by category?
 
 end

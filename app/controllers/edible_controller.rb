@@ -3,8 +3,19 @@ class EdibleController < ApplicationController
 
 
   def create
-		@edible = current_user.home.edibles.find_or_create_by!(title: params[:title])
-		@edible.update_attributes(quantity: params[:quantity])
+		@edible = current_user.home.edibles.find_or_create_by!(title: params[:title]) do |edible|
+												 edible.quantity = params[:quantity]
+												 edible.preferred = params[:preferred]
+												 edible.category = params[:category]
+												 edible.necessity = params[:necessity] || false
+												 edible.brand = params[:brand]
+												end
+		@edible.assign_attributes(quantity: params[:quantity] || @edible.quantity,
+															preferred: params[:preferred] || @edible.preferred,
+															category: params[:category] || @edible.category,
+															title: params[:title] || @edible.title,
+															brand: params[:brand] || @edible.brand,
+															necessity: params[:necessity] || @edible.necessity)
 	# def create
 	# 		@edible = current_user.home.edibles.find_or_create_by!(title: params[:title]) do |edible|
 	# 											 edible.quantity = params[:quantity]
