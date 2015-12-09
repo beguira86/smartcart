@@ -9,7 +9,7 @@ class GroceryController < ApplicationController
 												 grocery.necessity = params[:necessity] || false
 												 grocery.brand = params[:brand]
 												end
-		@grocery.assign_attributes(quantity: params[:quantity] || @grocery.quantity,
+		@grocery.assign_attributes(quantity: update_quantity(@grocery) || @grocery.quantity,
 															preferred: params[:preferred] || @grocery.preferred,
 															category: params[:category] || @grocery.category,
 															title: params[:title] || @grocery.title,
