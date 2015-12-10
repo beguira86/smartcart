@@ -17,7 +17,7 @@ class EdibleController < ApplicationController
 										 category: params[:category] || @edible.category,
 										 title: params[:title] || @edible.title,
 										 brand: params[:brand] || @edible.brand,
-			 							 necessity: params[:necessity] || @edible.necessity
+			 							 necessity: params[:necessity] || @edible.necessity,
 			 							 units: params[:units] || @edible.units)
 		end
 		if @edible.save
