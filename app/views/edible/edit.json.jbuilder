@@ -1,1 +1,1 @@
-json.extract! @edible, :title, :brand, :necessity, :quantity, :preferred, :category
+json.extract! @edible, :title, :brand, :necessity, :quantity, :preferred, :category, :units
