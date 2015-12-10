@@ -2,40 +2,23 @@ class GroceryController < ApplicationController
   before_action :authenticate_user! 
 
   def create
-		@grocery = current_user.home.groceries.find_or_create_by!(title: params[:title]) do |grocery|
-												 grocery.quantity = params[:quantity]
-												 grocery.preferred = params[:preferred]
-												 grocery.category = params[:category]
-												 grocery.necessity = params[:necessity] || false
-												 grocery.brand = params[:brand]
-												end
-		@grocery.assign_attributes(quantity: update_quantity(@grocery) || @grocery.quantity,
-															preferred: params[:preferred] || @grocery.preferred,
-															category: params[:category] || @grocery.category,
-															title: params[:title] || @grocery.title,
-															brand: params[:brand] || @grocery.brand,
-															necessity: params[:necessity] || @grocery.necessity)
+		@grocery = current_user.home.groceries.find_by(title: params[:title])
+		if @grocery.nil?
+			 @grocery = current_user.home.groceries.create(necessity: params[:necessity] || false,
+										 quantity: params[:quantity],
+										 preferred: params[:preferred],
+										 category: params[:category],
+										 title: params[:title],
+										 brand: params[:brand])
+		else
+			 @grocery.update(quantity: update_quantity(@grocery) || @grocery.quantity,
+										 preferred: params[:preferred] || @grocery.preferred,
+										 category: params[:category] || @grocery.category,
+										 title: params[:title] || @grocery.title,
+										 brand: params[:brand] || @grocery.brand,
+			 							 necessity: params[:necessity] || @grocery.necessity)
+		end
 
-
-
-
-		# @grocery = current_user.home.groceries.find_or_create_by!(title: params[:title])
-		# @grocery.update_attributes(quantity: params[:quantity])
-
-			# @grocery = current_user.home.groceries.new(necessity: params[:necessity] || false,
-			# 									 quantity: params[:quantity],
-			# 									 preferred: params[:preferred],
-			# 									 category: params[:category],
-			# 									 title: params[:title],
-			# 									 brand: params[:brand])	
-
-		# @grocery = Grocery.new(necessity: params[:necessity] || false,
-		# 								   		 quantity: params[:quantity],
-		# 									  	 preferred: params[:preferred],
-		# 										   category: params[:category],
-		# 			  							 title: params[:title],
-		# 				  						 brand: params[:brand],
-		# 					  					 house_id: params[:house_id])
 		if @grocery.save
 			render "create.json.jbuilder", status: :created
 		else
@@ -72,6 +55,30 @@ class GroceryController < ApplicationController
 		render json: {success: "true"}, status: :ok
 	end
 
-	#add a category method to sort the groceries by category?
-
 end
+
+
+####CODE GRAVEYARD
+# 	@grocery.assign_attributes(quantity: update_quantity(@grocery) || @grocery.quantity,
+# 															preferred: params[:preferred] || @grocery.preferred,
+# 															category: params[:category] || @grocery.category,
+# 															title: params[:title] || @grocery.title,
+# 															brand: params[:brand] || @grocery.brand,
+# 															necessity: params[:necessity] || @grocery.necessity)
+# @grocery = current_user.home.groceries.find_or_create_by!(title: params[:title])
+		# @grocery.update_attributes(quantity: params[:quantity])
+
+			# @grocery = current_user.home.groceries.new(necessity: params[:necessity] || false,
+			# 									 quantity: params[:quantity],
+			# 									 preferred: params[:preferred],
+			# 									 category: params[:category],
+			# 									 title: params[:title],
+			# 									 brand: params[:brand])	
+
+		# @grocery = Grocery.new(necessity: params[:necessity] || false,
+		# 								   		 quantity: params[:quantity],
+		# 									  	 preferred: params[:preferred],
+		# 										   category: params[:category],
+		# 			  							 title: params[:title],
+		# 				  						 brand: params[:brand],
+		# 					  					 house_id: params[:house_id])

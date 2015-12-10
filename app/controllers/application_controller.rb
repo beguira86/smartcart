@@ -27,4 +27,9 @@ class ApplicationController < ActionController::Base
   #     render json: {error: "There was a problem! #{error.message}" },
   #     status: :not_found
   # end
+
+  # rescue_from ActiveRecord::RecordInvalid do |error|
+  #   render json: { error: "Could not find object: #{error.message}" },
+  #     status: :unproccessable_entity
+  # end
 end
