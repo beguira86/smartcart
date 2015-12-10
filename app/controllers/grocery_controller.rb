@@ -9,14 +9,16 @@ class GroceryController < ApplicationController
 										 preferred: params[:preferred],
 										 category: params[:category],
 										 title: params[:title],
-										 brand: params[:brand])
+										 brand: params[:brand],
+										 units: params[:units])
 		else
 			 @grocery.update(quantity: update_quantity(@grocery) || @grocery.quantity,
 										 preferred: params[:preferred] || @grocery.preferred,
 										 category: params[:category] || @grocery.category,
 										 title: params[:title] || @grocery.title,
 										 brand: params[:brand] || @grocery.brand,
-			 							 necessity: params[:necessity] || @grocery.necessity)
+			 							 necessity: params[:necessity] || @grocery.necessity,
+			 							 units: params[:units] || @grocery.units)
 		end
 
 		if @grocery.save

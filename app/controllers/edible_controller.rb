@@ -9,14 +9,16 @@ class EdibleController < ApplicationController
 										 preferred: params[:preferred],
 										 category: params[:category],
 										 title: params[:title],
-										 brand: params[:brand])
+										 brand: params[:brand],
+										 units: params[:units])
 		else
 			 @edible.update(quantity: update_quantity(@edible) || @edible.quantity,
 										 preferred: params[:preferred] || @edible.preferred,
 										 category: params[:category] || @edible.category,
 										 title: params[:title] || @edible.title,
 										 brand: params[:brand] || @edible.brand,
-			 							 necessity: params[:necessity] || @edible.necessity)
+			 							 necessity: params[:necessity] || @edible.necessity
+			 							 units: params[:units] || @edible.units)
 		end
 		if @edible.save
 			render "create.json.jbuilder", status: :created
