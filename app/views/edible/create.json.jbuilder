@@ -7,4 +7,5 @@ json.edible do
   json.title @edible.title
   json.brand @edible.brand
   json.house_id @edible.house_id
+  json.units @edible.units
 end
