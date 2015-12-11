@@ -8,5 +8,7 @@ json.grocery do
   json.brand @grocery.brand
   json.house_id @grocery.house_id
   json.units @grocery.units
-  json.absolute @grocery.quantity-@grocery.preferred
+  if @grocery.quantity < @grocery.preferred
+    json.absolute (@grocery.quantity-@grocery.preferred).abs
+  end
 end
