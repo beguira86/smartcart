@@ -31,7 +31,6 @@ class GroceryController < ApplicationController
 
   def index
   	@groceries = current_user.home.groceries.all
-#   @groceries = Grocery.where(house_id: params[:id])
     render "index.json.jbuilder", status: :ok
   end
 
@@ -56,6 +55,7 @@ class GroceryController < ApplicationController
 		@grocery.destroy
 		render json: {success: "true"}, status: :ok
 	end
+
 
 end
 

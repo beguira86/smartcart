@@ -15,13 +15,19 @@ class ApplicationController < ActionController::Base
 	  	status: :unauthorized
 	  end
   end
-  
+ 
   def update_quantity(item)
     current_value = item.quantity
     added_value = params[:quantity].to_i
     new_value = current_value + added_value
     new_value
   end
+
+# private
+#   def food_params
+#     allow = [:necessity, :quantity, :preferred, :category, :title, :brand, :units]
+#     params.
+#   end
 
   # rescue_from ActiveRecord::RecordNotFound do | error |
   #     render json: {error: "There was a problem! #{error.message}" },
