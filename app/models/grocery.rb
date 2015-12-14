@@ -7,7 +7,7 @@ class Grocery < ActiveRecord::Base
 	# end
 
 	def absolute
-		return 0 if self.preferred.nil?
+		return self.quantity if self.preferred.nil?
 	  if self.quantity < self.preferred
 	    self.preferred - self.quantity
 	  else
