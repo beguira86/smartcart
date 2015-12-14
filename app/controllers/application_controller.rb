@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
  
   def update_quantity(item)
     current_value = item.quantity
-    added_value = params[:quantity].to_i
+    added_value = params[:quantity].to_f
     new_value = current_value + added_value
     new_value
   end
