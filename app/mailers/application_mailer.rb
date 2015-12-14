@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "no-reply@smartcart.com"
+  default from: "heythere@smartcart.com"
   layout 'mailer'
 end

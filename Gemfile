@@ -36,7 +36,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Foreman
  gem 'foreman' 
 
- 
+# Mandrill
+ gem 'mandrill-api' 
 
 # Use Unicorn as the app server
 # gem 'unicorn'
