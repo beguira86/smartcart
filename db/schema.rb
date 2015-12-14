@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151211185732) do
+ActiveRecord::Schema.define(version: 20151214155601) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "edibles", force: :cascade do |t|
-    t.integer "quantity"
+    t.float   "quantity"
     t.integer "preferred"
     t.boolean "necessity", default: false, null: false
     t.string  "category"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20151211185732) do
     t.string  "brand"
     t.integer "house_id"
     t.string  "units"
-    t.integer "absolute"
+    t.float   "absolute"
   end
 
   create_table "houses", force: :cascade do |t|
