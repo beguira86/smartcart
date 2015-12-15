@@ -28,7 +28,4 @@ class RecipeController < ApplicationController
   	params.permit(:id)
   end
 
-  # def add_params
-  # 	###SDKJFLSKDJFLSKDJFSDFDS
-  # end
 end
