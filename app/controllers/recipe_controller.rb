@@ -2,12 +2,13 @@ class RecipeController < ApplicationController
   before_action :authenticate_user!, only: [:add]
 
   def search
-  	instance = FlourPower.new
+  	instance = Flourpower.new
   	@recipes = instance.search(params[:query])
+    render json: @recipes
   end
 
   def select
-  	instance = FlourPower.new
+  	instance = Flourpower.new
   	@recipe = instance.select(params[:id])
   end
 

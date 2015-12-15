@@ -1,4 +1,4 @@
-class FlourPower
+class Flourpower
 	include HTTParty
 	base_uri "https://flour-power.herokuapp.com"
 
@@ -9,11 +9,12 @@ class FlourPower
 	end
 
 	def search(query)
-		FlourPower.get("/api/recipes/search?query=#{query}", headers: @auth)
+		response = Flourpower.get("/api/recipes/search?query=#{query}", headers: @auth)
+		JSON.parse(response.body)
 	end
 
 	def select(id)
-    FlourPower.get("/api/recipes/#{id}", headers: @auth)
+    Flourpower.get("/api/recipes/#{id}", headers: @auth)
   end
 
 end
