@@ -21,6 +21,7 @@ delete "/signup", to: "registrations#destroy"
 post "/login", to: "registrations#login"
 get "/logout", to: "registrations#logout"
 post "/signup/roommate", to: "registrations#roommate"
+post "/signup/update", to: "registrations#change_password"
 
 #  HOUSE CONTROLLER
 post "/house", to: "house#create"
