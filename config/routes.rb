@@ -41,8 +41,8 @@ put "/grocery/:id", to: "grocery#update"
 delete "/grocery/:id", to: "grocery#destroy"
 
 # RECIPE CONTROLLER
-get "/recipe", to: "recipe#search"
-get "/recipe/:id", to: "recipe#select"
+post "/recipe", to: "recipe#search"
+post "/recipe/:id", to: "recipe#select"
 post "/recipe/:id/add", to: "recipe#add"
 
 
