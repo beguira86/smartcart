@@ -42,7 +42,7 @@ delete "/grocery/:id", to: "grocery#destroy"
 
 # RECIPE CONTROLLER
 post "/recipe", to: "recipe#search"
-post "/recipe/:id", to: "recipe#select"
+get "/recipe/:id", to: "recipe#select"
 post "/recipe/:id/add", to: "recipe#add"
 
 

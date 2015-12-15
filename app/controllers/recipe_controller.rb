@@ -10,10 +10,14 @@ class RecipeController < ApplicationController
   def select
   	instance = Flourpower.new
   	@recipe = instance.select(params[:id])
+    binding.pry
+    render json: @recipe
   end
 
   def add
-  	@recipe = current_user
+  	instance = Flourpower.new
+    @recipe = instance.select(params[:id])
+    render json: { success: true }
   end
 
   private
