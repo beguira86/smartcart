@@ -80,10 +80,10 @@ Rails.application.configure do
   # Mandrill
   config.action_mailer.smtp_settings = {
     address: 'smtp.mandrillapp.com',
-    port: 25, # ports 587 and 2525 are also supported with STARTTLS
+    port: 587,
     enable_starttls_auto: true, # detects and uses STARTTLS
     user_name: ENV['MANDRILL_USERNAME'],
     password: ENV['MANDRILL_API_KEY'],
-    authentication: 'login', # Mandrill supports 'plain' or 'login'
+    authentication: 'login'
     }
 end
