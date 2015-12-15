@@ -1,4 +1,5 @@
 class RegistrationsController < ApplicationController
+  before_action :authenticate_user!, only: [:roommate]
 
   def create
     @user = User.new(username: params[:username],
@@ -26,6 +27,24 @@ class RegistrationsController < ApplicationController
     end
   end
 
+  def roommate
+    @house = current_user.home
+    @roommate = User.new(username: params[:username],
+                     password: params[:password],
+                     email: params[:email])
+    @roommate.houses << @house
+    if @roommate.save
+      render "roommate.json.jbuilder", status: :created
+    else
+      render json: { errors: @roommate.errors.full_messages },
+        status: :unauthorized
+    end
+  end
+
+  # def update
+  #   @user = current_user.update(password: params[:password])
+  # end
+
   def logout
     current_user = nil
     redirect_to root
@@ -40,4 +59,7 @@ class RegistrationsController < ApplicationController
         status: :unauthorized
     end
   end
+
+  private
+
 end
