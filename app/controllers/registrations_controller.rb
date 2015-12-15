@@ -5,7 +5,7 @@ class RegistrationsController < ApplicationController
                      password: params[:password],
                      email:    params[:email])
     if @user.save
-     WelcomeMailer.welcome(@user).deliver_now
+     #WelcomeMailer.welcome(@user).deliver_now
       render "create.json.jbuilder", status: :created
 
     else
