@@ -1,5 +1,5 @@
 class RegistrationsController < ApplicationController
-  before_action :authenticate_user!, only: [:roommate]
+  before_action :authenticate_user!, only: [:roommate, :change_password]
 
   def create
     @user = User.new(username: params[:username],
@@ -41,9 +41,16 @@ class RegistrationsController < ApplicationController
     end
   end
 
-  # def update
-  #   @user = current_user.update(password: params[:password])
-  # end
+  def change_password
+     @user = current_user
+     if @user.authenticate(params[:password])
+     @user.update!(password: params[:new_password])
+      render "password.json.jbuilder", status: :created
+    else
+      render json: { errors: @user.errors.full_messages },
+        status: :unauthorized
+    end
+  end
 
   def logout
     current_user = nil
