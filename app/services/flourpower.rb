@@ -8,12 +8,15 @@ class FlourPower
 		}
 	end
 
-	def self.search(query)
-		search = FlourPower.get("/api/recipes/search?query=#{query}", headers: @auth)
+	def search(query)
+		FlourPower.get("/api/recipes/search?query=#{query}", headers: @auth)
 	end
 
-	def self.select(id)
-    recipe = FlourPower.get("/api/recipes/#{id}", headers: @auth)
+	def select(id)
+    FlourPower.get("/api/recipes/#{id}", headers: @auth)
   end
 
 end
+
+## api = FlourPower.new
+## api.search()
