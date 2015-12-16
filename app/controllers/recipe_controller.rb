@@ -17,8 +17,9 @@ class RecipeController < ApplicationController
   # def add
   # 	instance = Flourpower.new
   #   @recipe = instance.select(params[:id])
-  #   @recipe.each do |x|
-  #     x
+  #   @recipe.ingredients do |i|
+      
+    
   #   render json: { success: true }
   # end
 
@@ -32,3 +33,12 @@ class RecipeController < ApplicationController
   end
 
 end
+
+
+
+
+# the graveyard
+
+@recipe["ingredients"]
+
+

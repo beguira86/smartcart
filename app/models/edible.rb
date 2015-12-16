@@ -1,6 +1,7 @@
 class Edible < ActiveRecord::Base
 	belongs_to :house
 	belongs_to :user
+	validates_uniqueness_of :title, scope: :brand
 
 	# def self.with_brand(brand)
 	# 	where(brand: brand)
