@@ -35,10 +35,3 @@ class RecipeController < ApplicationController
 end
 
 
-
-
-# the graveyard
-
-@recipe["ingredients"]
-
-
